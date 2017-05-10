@@ -6,45 +6,72 @@ describe("Thermostat", function() {
     thermostat = new Thermostat
   });
 
-  it("initiates with a temperature function set to 20", function(){
-    expect(thermostat._temp).toBe(20)
+  describe("initiation", function() {
+
+    it("occurs with a temperature set to 20", function(){
+      expect(thermostat._temp).toBe(20)
+    });
+
+    it("occurs with power-save-mode set to 'on'", function(){
+      expect(thermostat._powerSave).toBe(true)
+      expect(thermostat._maxTemp).toBe(25)
+    });
+
   });
 
-  it('temperature can be increased with an up function', function(){
-    thermostat.up(5);
-    expect(thermostat._temp).toBe(25)
+  describe("#up function", function() {
+
+    it('increases temperature by 1 with no parameter passed', function(){
+      thermostat.up(1);
+      expect(thermostat._temp).toEqual(21)
+    });
+
+    it('increases temperature by 5 with relevant parameter', function(){
+      thermostat.up(5);
+      expect(thermostat._temp).toEqual(25)
+    });
+
   });
 
-  it('temperature can be decreased with an up function', function(){
-    thermostat.down();
-    expect(thermostat._temp).toBe(19)
+  describe("#down function", function() {
+
+    it('temperature can be decreased with a down function', function(){
+      thermostat.down();
+      expect(thermostat._temp).toBe(19)
+    });
+
   });
 
-  it("should initiate with  power save mode set to on", function(){
-    expect(thermostat._powerSave).toBe(true)
-    expect(thermostat._maxTemp).toBe(25)
+  describe("#powerSaveToggle", function() {
+
+    it("has a default value of true", function(){
+      expect(thermostat._powerSave).toBe(true);
+    });
+
+    it("changes power saving mode from true to false", function(){
+      thermostat.powerSaveToggle();
+      expect(thermostat._powerSave).toBe(false);
+    });
+
+    it("should change the maxTemperature based on powerSave toggle", function(){
+      thermostat.powerSaveToggle();
+      expect(thermostat._maxTemp).toBe(32);
+    });
+
   });
 
-  it("should allow us to change power saving mode from on to off", function(){
-    thermostat.powerSaveToggle()
-    expect(thermostat._powerSave).toBe(false)
-  })
+  describe("reset", function() {
 
-  it("should change the maxTemperature based on powerSave toggle", function(){
-    thermostat.powerSaveToggle()
-    expect(thermostat._maxTemp).toBe(32)
-  })
+    it("should reset to 20 degrees when the reset function is called", function(){
+      thermostat.reset();
+      expect(thermostat._temp).toBe(20)
+    });
 
-  it("should reset to 20 degrees when the reset function is called", function(){
-    thermostat.reset()
-    expect(thermostat._temp).toBe(20)
+    it("should reset to predefined when the reset function is called with a parameter", function(){
+      thermostat.reset(11);
+      expect(thermostat._temp).toBe(11)
+    });
+
   });
-
-  it("should reset to predefined when the reset function is called with a parameter", function(){
-    thermostat.reset(11)
-    expect(thermostat._temp).toBe(11)
-  });
-
-
 
 });
