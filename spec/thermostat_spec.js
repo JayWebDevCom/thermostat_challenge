@@ -53,21 +53,21 @@ describe("Thermostat", function() {
       expect(thermostat._powerSave).toBe(false);
     });
 
-    it("should change the maxTemperature based on powerSave toggle", function(){
+    it("changes _maxTemp based on powerSave toggle", function(){
       thermostat.powerSaveToggle();
       expect(thermostat._maxTemp).toBe(32);
     });
 
   });
 
-  describe("reset", function() {
+  describe("#reset", function() {
 
-    it("should reset to 20 degrees when the reset function is called", function(){
+    it("resets temperature to 20 degrees when the reset function is called", function(){
       thermostat.reset();
       expect(thermostat._temp).toBe(20)
     });
 
-    it("should reset to predefined when the reset function is called with a parameter", function(){
+    it("resets temperature to a predefined value when the reset function is called with a parameter", function(){
       thermostat.reset(11);
       expect(thermostat._temp).toBe(11)
     });
