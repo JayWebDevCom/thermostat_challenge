@@ -3,10 +3,10 @@ describe("Thermostat", function() {
   var thermostat;
 
   beforeEach(function(){
-    thermostat = new Thermostat
+    thermostat = new Thermostat;
   });
 
-  describe("initiation", function() {
+  describe("initialization", function() {
 
     it("occurs with a temperature set to 20", function(){
       expect(thermostat._temp).toBe(20)
@@ -19,7 +19,7 @@ describe("Thermostat", function() {
 
   });
 
-  describe("#up function", function() {
+  describe("#up", function() {
 
     it('increases temperature by 1 with no parameter passed', function(){
       thermostat.up(1);
@@ -33,7 +33,7 @@ describe("Thermostat", function() {
 
   });
 
-  describe("#down function", function() {
+  describe("#down", function() {
 
     it('temperature can be decreased with a down function', function(){
       thermostat.down();
