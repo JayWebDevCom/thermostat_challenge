@@ -90,8 +90,21 @@ input:checked + .slider:before {
 
     <div class="jumbotron text-center">
       <h3 class="warning"></h3>
-        <h2 class="weather">Weather will go here...</h2>
-        <h1>I Am Thermostat </h1>
+
+      <select class="citySelect">
+        <option value="London" selected="selected">London</option>
+        <option value="Birmingham">Birmingham</option>
+        <option value="Manchester">Manchester</option>
+        <option value="Glasgow">Glasgow</option>
+      </select>
+
+      <br><br>
+
+      <button type="button" class="btn btn-primary btn-lg cityButton">
+        Update Weather For Your City
+      </button>
+
+        <h3 class="weather">Weather will go here...</h3>
         <h3>Current Temperature is</h3>
         <p class="temp"></p>
         <div class="row text-center">

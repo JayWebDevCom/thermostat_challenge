@@ -26,7 +26,7 @@ describe("Thermostat", function() {
       expect(thermostat._temp).toEqual(21)
     });
 
-    it('increases temperature by 5 with relevant parameter', function(){
+    it('increases temperature by 5 with corresponding parameter', function(){
       thermostat.up(5);
       expect(thermostat._temp).toEqual(25)
     });
