@@ -25,26 +25,25 @@ $(document).ready(function(){
 
   $(".slider").click(function(){
     t.powerSaveToggle();
-      if (t._powerSave == true) {
-        $(".powerStatus").text("On");
-      } else {
-        $(".powerStatus").text("Off");
-      }
-    });
+    if (t._powerSave == true) {
+      $(".powerStatus").text("On");
+    } else {
+      $(".powerStatus").text("Off");
+    }
+  });
 
-    $(".cityButton").click(function(){
-      var x = $(".citySelect option:selected").val()
-      var link = "http://api.openweathermap.org/data/2.5/weather?q=" + x + "&appid=8d768cdf677e80b711b9f48b07da13fc&units=metric";
 
-      var the_weather = $.get(link, function(data) {
-        $(".weather").text( 'Outside in ' + data.name + ' it is ' + Math.round(data.main.temp) + '°C' );
-      });
-
-    });
-
-    var the_weather = $.get("http://api.openweathermap.org/data/2.5/weather?q=London&appid=8d768cdf677e80b711b9f48b07da13fc&units=metric", function(data) {
+  $(".citySelect").change(function(){
+    var x = $(".citySelect option:selected").val()
+    var link = "http://api.openweathermap.org/data/2.5/weather?q=" + x + "&appid=8d768cdf677e80b711b9f48b07da13fc&units=metric";
+    var the_weather = $.get(link, function(data) {
       $(".weather").text( 'Outside in ' + data.name + ' it is ' + Math.round(data.main.temp) + '°C' );
     });
+  });
+
+  var the_weather = $.get("http://api.openweathermap.org/data/2.5/weather?q=London&appid=8d768cdf677e80b711b9f48b07da13fc&units=metric", function(data) {
+    $(".weather").text( 'Outside in ' + data.name + ' it is ' + Math.round(data.main.temp) + '°C' );
+  });
 
 
 });
