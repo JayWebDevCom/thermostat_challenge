@@ -4,7 +4,7 @@ $(document).ready(function(){
 
   t._powerSave == true ? $(".powerStatus").text("On") : $(".powerStatus").text("Off")
 
-  $(".warning").text('this is a warning');
+  $(".warning").text(sessionStorage.details);
 
   $(".temp").text(t.whatIsTemp());
 
@@ -35,5 +35,5 @@ $(document).ready(function(){
 
 
 var the_weather = $.get("http://api.openweathermap.org/data/2.5/weather?q=London,uk&appid=8d768cdf677e80b711b9f48b07da13fc&units=metric", function(data) {
-  $(".weather").text( 'Outside it is ' + Math.round( data.main.temp) + ' C' );
+  $(".weather").text( 'Outside it is ' + Math.round( data.main.temp) + '°C' );
 });
