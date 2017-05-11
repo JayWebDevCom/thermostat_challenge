@@ -15,14 +15,24 @@ $(document).ready(function(){
   $(".temp").text(t.whatIsTemp());
 
   $(".upButton").click(function(){
-    t.up();
-    $(".temp").text(t.whatIsTemp());
-  })
+    try {
+      t.up();
+      $(".temp").text(t.whatIsTemp());
+    }
+    catch(err) {
+      $(".warning").text(err.message)
+    }
+  });
 
   $(".downButton").click(function(){
-    t.down();
-    $(".temp").text(t.whatIsTemp());
-  })
+    try {
+      t.down();
+      $(".temp").text(t.whatIsTemp());
+    }
+    catch(err) {
+      $(".warning").text(err.message)
+    }
+  });
 
   $(".resetButton").click(function(){
     t.reset();
