@@ -2,6 +2,12 @@ $(document).ready(function(){
 
   t = new Thermostat();
 
+  $('.selectpicker').selectpicker({
+    style: 'btn-info',
+    size: 4
+  });
+
+
   t._powerSave == true ? $(".powerStatus").text("On") : $(".powerStatus").text("Off")
 
   $(".warning").text(sessionStorage.details);
