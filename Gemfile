@@ -5,6 +5,7 @@ group :test, :development do
   gem 'rake'
 end
 
+gem 'json'
 gem 'rake'
 gem 'sinatra'
 gem 'sinatra-flash'

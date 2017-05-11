@@ -1,5 +1,6 @@
 require 'sinatra/base'
 
+
 class Thermostat < Sinatra::Application
 
   enable :sessions
@@ -14,7 +15,8 @@ class Thermostat < Sinatra::Application
   end
 
   get '/thermostat' do
-    erb :thermostat
+    content_type :json
+    File.read('public/thermostat.json')
   end
 
 end

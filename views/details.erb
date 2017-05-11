@@ -3,8 +3,7 @@
 <script>
 $(document).ready(function(){
     $.get("http://localhost:9292/thermostat", function(data) {
-    $(".data").text(data.main.temp);
-    console.log(data.temp);
+    $(".data").text(data.temp);
   });
 })
 
