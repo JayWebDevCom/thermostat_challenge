@@ -4,6 +4,7 @@
 <head>
   <meta charset="utf-8">
   <title>Ajax Thermostat</title>
+  <link rel="icon" type="image/png" href="images/thermostat.png" />
   <!-- Latest compiled and minified CSS -->
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
   <!-- Optional theme -->
@@ -13,29 +14,93 @@
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
   <!-- <script src="lib/thermostat.js"></script> -->
   <!-- include source files here... -->
-  <!-- <script src="lib/thermostat.js"></script> -->
+  <script src="lib/thermostat.js"></script>
+  <script src ="lib/test.js"></script>
   <style>
   .row { margin-top:20px; }
-  .jumbotron { margin-top:40px; }
-  p.temp { font-size: 2em; }
+  .jumbotron { margin-top:20px; }
+  p.temp { font-size:2em; }
+
+  .switch {
+  position: relative;
+  display: inline-block;
+  width: 60px;
+  height: 34px;
+}
+
+/* Hide default HTML checkbox */
+.switch input {display:none;}
+
+/* The slider */
+.slider {
+  position: absolute;
+  cursor: pointer;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: #ccc;
+  -webkit-transition: .4s;
+  transition: .4s;
+}
+
+.slider:before {
+  position: absolute;
+  content: "";
+  height: 26px;
+  width: 26px;
+  left: 4px;
+  bottom: 4px;
+  background-color: white;
+  -webkit-transition: .4s;
+  transition: .4s;
+}
+
+input:checked + .slider {
+  background-color: #2196F3;
+}
+
+input:focus + .slider {
+  box-shadow: 0 0 1px #2196F3;
+}
+
+input:checked + .slider:before {
+  -webkit-transform: translateX(26px);
+  -ms-transform: translateX(26px);
+  transform: translateX(26px);
+}
+
+/* Rounded sliders */
+.slider.round {
+  border-radius: 34px;
+}
+
+.slider.round:before {
+  border-radius: 50%;
+}
+
+
   </style>
 </head>
 <body>
+
+
   <div class="container">
 
     <div class="jumbotron text-center">
       <h3 class="warning"></h3>
-        <h1>I Am Ajax Thermostat </h1>
+        <h2 class="weather">Weather will go here...</h2>
+        <h1>I Am Thermostat </h1>
         <h3>Current Temperature is</h3>
-        <p class="temp">...</p>
+        <p class="temp"></p>
         <div class="row text-center">
           <div class="col-sm-12 col-md-4 col-lg-4">
           </div>
             <div class="col-sm-12 col-md-4 col-lg-4">
-              <button type="button" class="btn btn-primary btn-lg">
+              <button type="button" class="btn btn-primary btn-lg upButton">
                 <span class="glyphicon glyphicon-arrow-up" aria-hidden="true"></span>
               </button>
-              <button type="button" class="btn btn-primary btn-lg">
+              <button type="button" class="btn btn-primary btn-lg downButton">
                 <span class="glyphicon glyphicon-arrow-down" aria-hidden="true"></span>
               </button>
             </div>
@@ -43,22 +108,28 @@
           </div>
         </div>
         <br>
+
+        <div class="row text-center">
+          <div class="col-sm-12 col-md-12 col-lg-12">
+            <p class="powerStatus"></p>
+            <label class="switch">
+              <input type="checkbox">
+              <div class="slider"></div>
+            </label>
+          </div>
+        </div>
+
+
         <div class="row text-center">
           <div class="col-sm-12 col-md-12 col-lg-12">
             <h3 class="reset">Press To Reset</h3>
-            <button type="button" class="btn btn-primary btn-lg">
-              <span class="glyphicon glyphicon-star" aria-hidden="true"></span>
+            <button type="button" class="btn btn-primary btn-lg resetButton">
+              <span class="glyphicon glyphicon-asterisk" aria-hidden="true"></span>
             </button>
           </div>
         </div>
       </div>
     </div>
-
-<script>
-// element = document.querySelector('.temp');
-// element.innerHTML = 'temp will come here';
-$(".temp").html("200!");
-</script>
 
   </body>
   </html>
