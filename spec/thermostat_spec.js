@@ -74,4 +74,23 @@ describe("Thermostat", function() {
 
   });
 
+  describe("#doCheck", function() {
+    it("throws error when temp exceeds max permitted temp", function(){
+      expect(function(){
+        for(var i=0; i<6; i++ ){
+          thermostat.up();
+        }
+      }).toThrowError("Too Hot!")
+    });
+
+    it("throws error when temp exceeds min permitted temp", function(){
+      expect(function(){
+        for(var i=0; i<11; i++ ){
+          thermostat.down();
+        }
+      }).toThrowError("Too Cold!")
+    });
+
+  });
+
 });
