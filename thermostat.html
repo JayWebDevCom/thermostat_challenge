@@ -1,0 +1,64 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>Ajax Thermostat</title>
+  <!-- Latest compiled and minified CSS -->
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+  <!-- Optional theme -->
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
+  <script src="https://ajax.aspnetcdn.com/ajax/jQuery/jquery-3.2.1.min.js"></script>
+  <!-- Latest compiled and minified JavaScript -->
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+  <!-- <script src="lib/thermostat.js"></script> -->
+  <!-- include source files here... -->
+  <!-- <script src="lib/thermostat.js"></script> -->
+  <style>
+  .row { margin-top:20px; }
+  .jumbotron { margin-top:40px; }
+  p.temp { font-size: 2em; }
+  </style>
+</head>
+<body>
+  <div class="container">
+
+    <div class="jumbotron text-center">
+      <h3 class="warning"></h3>
+        <h1>I Am Ajax Thermostat </h1>
+        <h3>Current Temperature is</h3>
+        <p class="temp">...</p>
+        <div class="row text-center">
+          <div class="col-sm-12 col-md-4 col-lg-4">
+          </div>
+            <div class="col-sm-12 col-md-4 col-lg-4">
+              <button type="button" class="btn btn-primary btn-lg">
+                <span class="glyphicon glyphicon-arrow-up" aria-hidden="true"></span>
+              </button>
+              <button type="button" class="btn btn-primary btn-lg">
+                <span class="glyphicon glyphicon-arrow-down" aria-hidden="true"></span>
+              </button>
+            </div>
+          <div class="col-sm-12 col-md-4 col-lg-4">
+          </div>
+        </div>
+        <br>
+        <div class="row text-center">
+          <div class="col-sm-12 col-md-12 col-lg-12">
+            <h3 class="reset">Press To Reset</h3>
+            <button type="button" class="btn btn-primary btn-lg">
+              <span class="glyphicon glyphicon-star" aria-hidden="true"></span>
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+<script>
+// element = document.querySelector('.temp');
+// element.innerHTML = 'temp will come here';
+$(".temp").html("200!");
+</script>
+
+  </body>
+  </html>
