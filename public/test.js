@@ -10,7 +10,7 @@ $(document).ready(function(){
 
   t._powerSave == true ? $(".powerStatus").text("On") : $(".powerStatus").text("Off")
 
-  $(".warning").text(sessionStorage.details);
+  $(".storage").text(localStorage.weather);
 
   $(".temp").text(t.whatIsTemp() + '°C');
 
@@ -65,12 +65,12 @@ $(document).ready(function(){
     var x = $(".citySelect option:selected").val()
     var link = "http://api.openweathermap.org/data/2.5/weather?q=" + x + "&appid=8d768cdf677e80b711b9f48b07da13fc&units=metric";
     var the_weather = $.get(link, function(data) {
-      $(".weather").text( data.name + ' - ' + Math.round(data.main.temp) + '°C' );
+      $(".weather").text( data.name + ': ' + Math.round(data.main.temp) + '°C' );
     });
   });
 
   var the_weather = $.get("http://api.openweathermap.org/data/2.5/weather?q=London&appid=8d768cdf677e80b711b9f48b07da13fc&units=metric", function(data) {
-    $(".weather").text( data.name + ' - ' + Math.round(data.main.temp) + '°C' );
+    $(".weather").text( data.name + ': ' + Math.round(data.main.temp) + '°C' );
   });
 
 

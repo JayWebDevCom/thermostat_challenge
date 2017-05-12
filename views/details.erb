@@ -3,9 +3,12 @@
 <script>
 $(document).ready(function(){
     $.get("http://localhost:9292/thermostat", function(data) {
-    $(".data").text(data.temp);
+    // $(".data").text(data.temp);
+    localStorage.weather = data.temp
   });
 })
+
+
 
 </script>
 
