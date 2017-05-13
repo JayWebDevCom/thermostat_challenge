@@ -1,8 +1,21 @@
 describe("Thermostat", function() {
-  var Thermostat = require('../lib/thermostat');
+
+  function setUpHTMLFixture() {
+
+       setFixtures(
+         '<script>thermostat2 = new Thermostat;function thermostatDown(){thermostat2.down();}</script>'
+        +'  <input type="text" id="txtMessage">'
+        +'  <div id="downButton" onclick="thermostatDown()"></div>'
+        +'  <div id="output"></div>'
+                );
+     }
+
+
   var thermostat;
 
+
   beforeEach(function(){
+    setUpHTMLFixture();
     thermostat = new Thermostat;
   });
 
@@ -20,7 +33,6 @@ describe("Thermostat", function() {
   });
 
   describe("#up", function() {
-
     it('increases temperature by 1 with no parameter passed', function(){
       thermostat.up(1);
       expect(thermostat._temp).toEqual(21)
@@ -34,13 +46,35 @@ describe("Thermostat", function() {
   });
 
   describe("#down", function() {
-
     it('temperature can be decreased with a down function', function(){
-      thermostat.down();
-      expect(thermostat._temp).toBe(19)
+      thermostat.up(5);
+      expect(thermostat._temp).toEqual(25)
     });
-
   });
+
+  describe("#down", function() {
+    it('temperature can be decreased with a down function', function(){
+
+      $('#downButton').trigger( "click" );
+
+      $("#output").text(thermostat2._temp);
+
+      var temperature = $('#output').text();
+
+      expect(temperature).toEqual('19')
+    });
+  });
+
+
+describe("#click trigger", function() {
+    it('is called', function(){
+      var spyEvent = spyOnEvent('#downButton', 'click');
+      $('#downButton').trigger( "click" );
+      expect('click').toHaveBeenTriggeredOn('#downButton');
+      expect(spyEvent).toHaveBeenTriggered();
+    });
+  });
+
 
   describe("#powerSaveToggle", function() {
 
@@ -92,5 +126,7 @@ describe("Thermostat", function() {
     });
 
   });
+
+
 
 });
