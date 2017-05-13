@@ -1,20 +1,26 @@
 describe("Thermostat", function() {
 
+  function setUpHTMLFixture() {
+
+       setFixtures(
+         '<script>thermostat2 = new Thermostat;function thermostatDown(){thermostat2.down();}</script>'
+        +'  <input type="text" id="txtMessage">'
+        +'  <div class="downButton" onclick="thermostatDown()"></div>'
+        +'  <p class="output2">``</p>'
+                );
+     }
+
+
   beforeEach(function() {
-    $('#test_container').html('<button class="downButton">Temp value</button><p class="output"></p>');
-    counterInterface();
+    setUpHTMLFixture();
   });
 
-  describe("initialization", function() {
+  describe("downButton", function() {
 
-    it("occurs with a temperature set to 20", function(){
+    it("click reduces temperature by 1 C", function(){
       $('.downButton').trigger( "click" );
-      var temperature = $(".output").text();
-      expect(temperature).toEqual('19');
-    });
-
-    it("occurs with power-save-mode set to 'on'", function(){
-      expect(true).toBe(true);
+      $(".output2").text(thermostat2._temp);
+      expect($(".output2").text()).toEqual('19');
     });
 
   });
