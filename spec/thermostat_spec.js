@@ -126,7 +126,4 @@ describe("#click trigger", function() {
     });
 
   });
-
-
-
 });

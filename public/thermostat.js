@@ -42,7 +42,3 @@ Thermostat.prototype.reset = function(temp) {
   (temp) ? this._temp = temp : this._temp = 20
   this.doChecks();
 };
-
-// if environment == 'test' {
-  // module.exports = Thermostat;
-// }
