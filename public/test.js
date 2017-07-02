@@ -5,7 +5,7 @@ $(document).ready(function(){
     size: 4
   });
 
-
+  var t = new Thermostat()
   t._powerSave == true ? $(".powerStatus").text("On") : $(".powerStatus").text("Off")
 
   $(".storage").text(localStorage.weather);

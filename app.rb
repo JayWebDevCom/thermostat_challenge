@@ -1,6 +1,5 @@
 require 'sinatra/base'
 
-
 class Thermostat < Sinatra::Application
 
   enable :sessions
