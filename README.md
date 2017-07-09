@@ -1,6 +1,6 @@
 ### Thermostat Challenge
 
-[!Thermostat](http://www.freeiconspng.com/uploads/thermostat-icon-16.png)
+![Thermostat](http://www.freeiconspng.com/uploads/thermostat-icon-16.png)
 
 #### Description
 This is a test driven object oriented app written to manipulate a thermostat to control temperature. The object oriented app logic is written in javascript using the jQuery library and the application runs on Sinatra framework.
