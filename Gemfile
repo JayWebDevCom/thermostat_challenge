@@ -7,5 +7,5 @@ end
 
 gem 'json'
 gem 'rake'
-gem 'sinatra'
+gem 'sinatra ~> 2.0.1'
 gem 'sinatra-flash'
